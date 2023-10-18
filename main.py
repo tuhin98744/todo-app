@@ -1,12 +1,17 @@
-#userinput
-user_prompt = "Enter todo: "
-
-#todos contain empty list
 todos = []
+while True:
+    user_action = input("Type add, show, exit: ")
+    user_action = user_action.strip() #remove white space
 
-#Print todos using while loop
-while true:
-    todo = input(user_prompt).title()
-    #Appemd everything in todo from todos
-    todos.append(todo)
-    print(todos)
+    match user_action:
+        case 'add':
+            todo = input("[+] Enter a todo: ")
+            todos.append(todo)
+        case 'show':
+            for item in todos:
+                print(item)
+        case 'exit':
+            break
+        case _:
+            print("[-] Enter a valid command")
+
